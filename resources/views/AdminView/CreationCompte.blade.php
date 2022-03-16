@@ -20,7 +20,7 @@
                         </font>
                     </label>
                     <div class="col-md-10">
-                        <input class="form-control" type="text" name="numcompte" disabled="disabled">
+                        <input class="form-control" value="{{ $numcompte }}" type="text" name="numcompte" >
                     </div>
                 </div>
                 <div class="form-group row">
@@ -67,6 +67,26 @@
                             <font style="vertical-align: inherit;">En utilisant</font>
                         </font><code>input type="tel"</code> --}}
                         </span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-form-label col-md-2">
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;">Sexe </font>
+                        </font>
+                    </label>
+                    <div class="col-md-10">
+                        <div>
+                            <input type="radio" id="mas" name="sexe" value="masculin"
+                                   checked>
+                            <label for="mas">masculin</label>
+                          </div>
+
+                          <div>
+                            <input type="radio" id="fem" name="sexe" value="feminin">
+                            <label for="fem">feminin</label>
+                          </div>
+
                     </div>
                 </div>
 
@@ -199,13 +219,13 @@
                     </label>
                     <div class="col-md-10">
                         <div>
-                            <input type="radio" id="typep" name="typedepersonne" value="pysique"
+                            <input type="radio" id="typep" name="typedepersonne" value="physique"
                                    checked>
                             <label for="typep">Personne physique</label>
                           </div>
 
                           <div>
-                            <input type="radio" id="typem" name="typedepersonne" value="moral">
+                            <input type="radio" id="typem" name="typedepersonne" value="morale">
                             <label for="typem">Personne morale</label>
                           </div>
 

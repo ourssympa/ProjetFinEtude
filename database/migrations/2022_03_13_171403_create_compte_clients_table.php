@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('compte_clients', function (Blueprint $table) {
             $table->id();
             $table->integer('idclient')->require();
-            $table->string('numcompte')->require();
-            $table->integer('solde');
+            $table->string('numcompte')->unique()->require();
+            $table->integer('solde')->default(0);
             $table->date('dateouverture');
-            $table->date('echeance');
+            $table->date('echeance')->nullable();
             $table->timestamps();
         });
     }

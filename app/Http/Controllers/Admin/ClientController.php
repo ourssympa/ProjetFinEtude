@@ -3,7 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ClientRequest;
+use App\Models\Client;
+use App\Models\CompteClient;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Str;
+use Illuminate\Support\Carbon;
 
 class ClientController extends Controller
 {
@@ -14,6 +20,9 @@ class ClientController extends Controller
      */
     public function index()
     {
+        $client= Client::all();
+
+        return View('AdminView.AffichageClient',["datas"=>$client]);
 
     }
 
@@ -24,19 +33,56 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return View('AdminView/CreationCompte');
+        $characters = '0123456789';
+        $randomString = 'TG-';
+
+    for ($i = 0; $i < 8; $i++) {
+        $index = rand(0, strlen($characters) - 1);
+        $randomString .= $characters[$index];
     }
 
+        return View('AdminView/CreationCompte',['numcompte'=>$randomString]);
+    }
+
+    public function getInputs($request){
+
+        $characters = '0123456789azertyuiopqsdfghjklmwxcvbnAZERTYUIOPQSDFGHJLMWXCVBN';
+        $idclient = 'PHY-';
+        if($request->typedepersonne=="morale"){
+            $idclient = 'MOR-';
+        }
+
+        for ($i = 0; $i < 4; $i++) {
+            $index = rand(0, strlen($characters) - 1);
+            $idclient .= $characters[$index];
+        }
+        $inputs = $request->all();
+        $inputs["slug"] = Str::slug($request->nom.' '.$request->prenoms);
+        $inputs["codeclient"] = $idclient;
+        return $inputs;
+
+    }
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ClientRequest $request)
     {
-        dd($request->all());
+        $inputs = $this->getInputs($request);
+        $date= today();
+        // creation du client
+        $client=Client::create($inputs);
+        //creation du compte du client
+        CompteClient::create([
+                "idclient"=>$client->id,
+                "numcompte"=>$inputs['numcompte'],
+                "dateouverture"=>$date
+            ]);
+            return redirect()->route('client.index');
     }
+
 
     /**
      * Display the specified resource.
@@ -57,7 +103,7 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        //
+        dd('he');
     }
 
     /**
@@ -80,6 +126,6 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd('sup');
     }
 }

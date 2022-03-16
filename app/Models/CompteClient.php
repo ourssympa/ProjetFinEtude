@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class CompteClient extends Model
 {
     use HasFactory;
+    protected $fillable =[
+       'idclient',
+        'numcompte',
+        'solde',
+        'dateouverture',
+        'echeance'
+    ];
 }

@@ -164,7 +164,7 @@
 					</span>
 				  </a>
 				  <ul class="treeview-menu">
-					<li><a href="index-2.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Liste des Clients</a></li>
+					<li><a href="{{ route('client.index') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Liste des Clients</a></li>
 					<li><a href="{{ route('client.create') }}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Creation de Compte</a></li>
 				  </ul>
 				</li>
@@ -497,17 +497,16 @@
 	<script src="{{Asset("AdminAssets/mainjs/pages/chat-popup.js")}}"></script>
     <script src="{{Asset("AdminAssets/assets/icons/feather-icons/feather.min.js")}}"></script>
 
-	<script src="{{Asset("AdminAssets/assets//vendor_components/apexcharts-bundle/dist/apexcharts.js")}}"></script>
+	<script src="{{Asset("AdminAssets/assets/vendor_components/apexcharts-bundle/dist/apexcharts.js")}}"></script>
 	<script src="{{Asset("AdminAssets/assets/vendor_components/progressbar.js-master/dist/progressbar.js")}}"></script>
 	<script>
 		document.getElementById('e').value = new Date().toISOString().substring(0, 10);
 	</script>
 
-	<!-- Deposito Admin App -->
 	<script src="{{Asset("AdminAssets/main/js/template.js")}}"></script>
 	<script src="{{Asset("AdminAssets/js/pages/dashboard2.js")}}"></script>
     @yield("script")
 </body>
 
-<!-- Mirrored from warehouse-admin-dashboard.multipurposethemes.com/main/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Mar 2022 23:34:09 GMT -->
+
 </html>
