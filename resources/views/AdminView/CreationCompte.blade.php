@@ -206,13 +206,13 @@
 
                           <div>
                             <input type="radio" id="typem" name="typedepersonne" value="moral">
-                            <label for="typem">Personne moral</label>
+                            <label for="typem">Personne morale</label>
                           </div>
 
                     </div>
                 </div>
 
-                <div id="suite">
+                <div id="suite" style="display: none">
                     <div class="form-group row">
                         <label class="col-form-label col-md-2">
                             <font style="vertical-align: inherit;">
@@ -253,7 +253,7 @@
                         </label>
                         <div class="col-md-10">
                             <input class="form-control" type="text" name="bp">
-                            <span class="form-text text-muted">
+                            <span class="form-te&xt text-muted">
                                 {{-- <font style="vertical-align: inherit;">
                                 <font style="vertical-align: inherit;">En utilisant</font>
                             </font><code>input type="tel"</code> --}}
@@ -261,6 +261,10 @@
                         </div>
                     </div>
 
+                </div>
+
+                <div class="d-flex align-content-md-center">
+                    <button type="submit" class="btn btn-success btn-lg btn-block">Enregistrer</button>
                 </div>
             </form>
 
@@ -270,4 +274,15 @@
 
 
     </div>
+    @section('script')
+
+    <script>
+ var suite = document.getElementById("suite");
+    var morale =document.getElementById("typem");
+    var physique =document.getElementById("typep");
+
+    morale.addEventListener("click", () => {suite.style.display = "block";});
+    physique.addEventListener("click", () => {suite.style.display = "none";});
+    </script>
+    @endsection
 @endsection

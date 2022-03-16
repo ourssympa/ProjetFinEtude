@@ -506,7 +506,7 @@
 	<!-- Deposito Admin App -->
 	<script src="{{Asset("AdminAssets/main/js/template.js")}}"></script>
 	<script src="{{Asset("AdminAssets/js/pages/dashboard2.js")}}"></script>
-
+    @yield("script")
 </body>
 
 <!-- Mirrored from warehouse-admin-dashboard.multipurposethemes.com/main/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 12 Mar 2022 23:34:09 GMT -->
