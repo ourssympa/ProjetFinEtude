@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ClientRequest;
 use App\Models\Client;
 use App\Models\CompteClient;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
+use Illuminate\View\View as ViewView;
 
 class ClientController extends Controller
 {
@@ -103,7 +105,8 @@ class ClientController extends Controller
      */
     public function edit($id)
     {
-        dd('he');
+        $client= Client::find($id);
+        return View('AdminView/UpdateClient',['data'=>$client]);
     }
 
     /**
@@ -115,7 +118,7 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($request->all());
     }
 
     /**

@@ -30,7 +30,7 @@
                     <th>{{ $data->numcompte }}</th>
                     <td>{{ $data->slug }} </td>
                     <td>{{ $data->telephone }}</td>
-                    <td>{{ $data->numcarte }}I</td>
+                    <td>{{ $data->numcarte }}</td>
                     <td>{{ $data->profession }}</td>
                     <td>{{ $data->typedepersonne }}</td>
                     <td>{{ $data->designation }}</td>
