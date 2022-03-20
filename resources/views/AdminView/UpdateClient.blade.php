@@ -12,6 +12,7 @@
     </div>
     <div class="box-body">
         <form action="{{route('client.update',$data->id)}}" method="post">
+            @method('put')
             @csrf
             <div class="form-group row">
                 <label class="col-form-label col-md-2">
@@ -332,7 +333,7 @@
             </div>
 
             <div class="d-flex align-content-md-center">
-                <button type="submit" class="btn btn-success btn-lg btn-block">Enregistrer</button>
+                <button type="submit" class="btn btn-success btn-lg btn-block">Modification</button>
             </div>
         </form>
 

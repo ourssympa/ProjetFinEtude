@@ -118,7 +118,12 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
+        $client = Client::find($id);
+        $inputs = $request->all();
+        $inputs["slug"] = Str::slug($request->nom.' '.$request->prenoms);
+        $client->fill($inputs)->save();
+
+        return redirect()->route('client.index');
     }
 
     /**
@@ -129,6 +134,10 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        dd('sup');
+        $client = Client::find($id);
+        $compte = CompteClient::where('idclient',$id);
+        $client->delete();
+        $compte->delete();
+        return redirect()->route('client.index');
     }
 }

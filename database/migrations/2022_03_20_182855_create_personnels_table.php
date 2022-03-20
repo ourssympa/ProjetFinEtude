@@ -13,13 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('compte_clients', function (Blueprint $table) {
+        Schema::create('personnels', function (Blueprint $table) {
             $table->id();
-            $table->integer('idclient')->require();
-            $table->string('numcompte')->unique()->require();
-            $table->integer('solde')->default(0);
-            $table->date('dateouverture');
-            $table->date('echeance')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('compte_clients');
+        Schema::dropIfExists('personnels');
     }
 };

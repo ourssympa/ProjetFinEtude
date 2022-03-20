@@ -41,8 +41,8 @@
                         Modification
                     </a>
 
-                    <form action="{{ route('client.destroy',$data->id)}}" method="delete">
-
+                    <form action="{{ route('client.destroy',$data->id)}}" method="post">
+                        @csrf
                     <button class="btn btn-danger btn-sm" type="submit"  onclick="return confirm('Voulez vous vraiment supprimer ?')">
 
                         Suppression

@@ -170,8 +170,8 @@
 				</li>
 				<li class="treeview">
 				  <a href="#">
-					<i data-feather="package"></i>
-					<span>Features</span>
+					<i data-feather="user"></i>
+					<span>Gestion Du Personnel</span>
 					<span class="pull-right-container">
 					  <i class="fa fa-angle-right pull-right"></i>
 					</span>
@@ -179,7 +179,7 @@
 				  <ul class="treeview-menu">
 					<li class="treeview">
 						<a href="#">
-							<i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Card
+							<i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Liste du Personnel
 							<span class="pull-right-container">
 								<i class="fa fa-angle-right pull-right"></i>
 							</span>
@@ -193,22 +193,7 @@
 						</ul>
 					</li>
 					<li class="treeview">
-						<a href="#">
-							<i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>BS UI
-							<span class="pull-right-container">
-								<i class="fa fa-angle-right pull-right"></i>
-							</span>
-						</a>
-						<ul class="treeview-menu">
-							<li><a href="ui_grid.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Grid System</a></li>
-							<li><a href="ui_badges.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Badges</a></li>
-							<li><a href="ui_border_utilities.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Border</a></li>
-							<li><a href="ui_buttons.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Buttons</a></li>
-							<li><a href="ui_color_utilities.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Color</a></li>
-							<li><a href="ui_dropdown.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Dropdown</a></li>
-							<li><a href="ui_dropdown_grid.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Dropdown Grid</a></li>
-							<li><a href="ui_progress_bars.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Progress Bars</a></li>
-						</ul>
+						<li><a href="#"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Ajout Personnel</a></li>
 					</li>
 					<li class="treeview">
 						<a href="#">

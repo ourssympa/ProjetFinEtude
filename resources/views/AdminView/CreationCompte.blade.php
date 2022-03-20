@@ -11,7 +11,7 @@
         </h4>
     </div>
     <div class="box-body">
-        <form action="{{ route('client.store') }}" method="post">
+        <form action="{{ route('client.store') }}" method="post" id="form">
             @csrf
             <div class="form-group row">
                 <label class="col-form-label col-md-2">
@@ -282,7 +282,7 @@
             </div>
 
             <div class="d-flex align-content-md-center">
-                <button type="submit" class="btn btn-success btn-lg btn-block">Enregistrer</button>
+                <button id="btn" type="submit" class="btn btn-success btn-lg btn-block">Enregistrer</button>
             </div>
         </form>
 
@@ -295,10 +295,15 @@
 @section('script')
 
 <script>
+    var btn = document.getElementById("btn");
+    var form = document.getElementById("form");
     var suite = document.getElementById("suite");
     var morale =document.getElementById("typem");
     var physique =document.getElementById("typep");
-
+    btn.addEventListener("click",()=>{
+        form.submit();
+        // form.reset();
+    });
     morale.addEventListener("click", () => {suite.style.display = "block";});
     physique.addEventListener("click", () => {suite.style.display = "none";});
 </script>

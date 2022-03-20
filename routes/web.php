@@ -17,4 +17,5 @@ Route::get('/', function () {
     return view('AdminView.layout.layout');
 });
 Route::resource('client',ClientController::class);
-Route::post('client/{id}',[ClientController::class,"update"])->name("client.update");
+Route::put('client/{id}',[ClientController::class,"update"])->name("client.update");
+Route::post('client/{id}',[ClientController::class,"destroy"])->name("client.destroy");
