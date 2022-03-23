@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\PersonnelController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,3 +21,4 @@ Route::get('/', function () {
 Route::resource('client',ClientController::class);
 Route::put('client/{id}',[ClientController::class,"update"])->name("client.update");
 Route::post('client/{id}',[ClientController::class,"destroy"])->name("client.destroy");
+Route::resource('personnel',PersonnelController::class);

@@ -178,22 +178,11 @@
 				  </a>
 				  <ul class="treeview-menu">
 					<li class="treeview">
-						<a href="#">
-							<i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Liste du Personnel
-							<span class="pull-right-container">
-								<i class="fa fa-angle-right pull-right"></i>
-							</span>
-						</a>
-						<ul class="treeview-menu">
-							<li><a href="box_cards.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>User Card</a></li>
-							<li><a href="box_advanced.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Advanced Card</a></li>
-							<li><a href="box_basic.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Basic Card</a></li>
-							<li><a href="box_color.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Card Color</a></li>
-							<li><a href="box_group.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Card Group</a></li>
-						</ul>
+						<li><a href="{{route('personnel.index')}}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Liste Du Personnel</a></li>
+
 					</li>
 					<li class="treeview">
-						<li><a href="#"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Ajout Personnel</a></li>
+						<li><a href="{{route('personnel.create')}}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Ajout Personnel</a></li>
 					</li>
 					<li class="treeview">
 						<a href="#">

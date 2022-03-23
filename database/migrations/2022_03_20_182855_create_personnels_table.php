@@ -15,6 +15,16 @@ return new class extends Migration
     {
         Schema::create('personnels', function (Blueprint $table) {
             $table->id();
+            $table->string('nom');
+            $table->string('prenoms')->nullable();
+            $table->string('tel')->nullable();
+            $table->string('nationalite')->nullable();
+            $table->string('sexe');
+            $table->date('datedenaissance')->nullable();
+            $table->string('slug');
+            $table->string('poste');
+            $table->string('nummatricule');
+            $table->string('nivetude')->nullable();
             $table->timestamps();
         });
     }

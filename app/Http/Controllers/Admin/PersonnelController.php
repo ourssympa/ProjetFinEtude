@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
+use App\Models\Personnel;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class PersonnelController extends Controller
@@ -14,7 +16,8 @@ class PersonnelController extends Controller
      */
     public function index()
     {
-        //
+        $personnel = Personnel::all();
+        return View('AdminView.PersonnelView.index',["datas"=>$personnel]);
     }
 
     /**
@@ -24,7 +27,15 @@ class PersonnelController extends Controller
      */
     public function create()
     {
-        //
+        $characters = '0123456789';
+        $matricule = '';
+
+    for ($i = 0; $i < 8; $i++) {
+        $index = rand(0, strlen($characters) - 1);
+        $matricule .= $characters[$index];
+    }
+        return View('AdminView/PersonnelView/Create',compact('matricule'));
+
     }
 
     /**
@@ -35,7 +46,10 @@ class PersonnelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request['slug']= Str::slug($request->nom.' '.$request->prenoms);
+        Personnel::create($request->all());
+        return redirect()->route('personnel.index');
+
     }
 
     /**
@@ -57,7 +71,9 @@ class PersonnelController extends Controller
      */
     public function edit($id)
     {
-        //
+        $personnel=Personnel::find($id);
+        $matricule=$personnel->nummatricule;
+        return View('AdminView/PersonnelView/update',compact('matricule','personnel'));
     }
 
     /**
@@ -69,7 +85,10 @@ class PersonnelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $personnel= Personnel::find($id);
+        $request['slug']= Str::slug($request->nom.' '.$request->prenoms);
+        $personnel->fill($request->all())->save();
+        return redirect()->route('personnel.index');
     }
 
     /**

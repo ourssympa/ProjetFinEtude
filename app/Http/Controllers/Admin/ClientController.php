@@ -24,7 +24,7 @@ class ClientController extends Controller
     {
         $client= Client::all();
 
-        return View('AdminView.AffichageClient',["datas"=>$client]);
+        return View('AdminView.ClientView.AffichageClient',["datas"=>$client]);
 
     }
 
@@ -43,7 +43,7 @@ class ClientController extends Controller
         $randomString .= $characters[$index];
     }
 
-        return View('AdminView/CreationCompte',['numcompte'=>$randomString]);
+        return View('AdminView/ClientView/CreationCompte',['numcompte'=>$randomString]);
     }
 
     public function getInputs($request){
@@ -106,7 +106,7 @@ class ClientController extends Controller
     public function edit($id)
     {
         $client= Client::find($id);
-        return View('AdminView/UpdateClient',['data'=>$client]);
+        return View('AdminView/ClientView/UpdateClient',['data'=>$client]);
     }
 
     /**
