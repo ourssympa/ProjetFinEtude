@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\PersonnelController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,9 +17,11 @@ use App\Http\Controllers\Admin\PersonnelController;
 */
 
 Route::get('/', function () {
-    return view('AdminView.layout.layout');
+    return view('UserView.indexUser');
 });
-Route::resource('client',ClientController::class);
-Route::put('client/{id}',[ClientController::class,"update"])->name("client.update");
-Route::post('client/{id}',[ClientController::class,"destroy"])->name("client.destroy");
-Route::resource('personnel',PersonnelController::class);
+Route::resource('Admin/client',ClientController::class);
+// Route::put('Admin/client/{id}',[ClientController::class,"update"])->name("client.update");
+Route::post('Admin/client/{id}',[ClientController::class,"destroy"])->name("client.destroy");
+Route::resource('Admin/personnel',PersonnelController::class);
+Route::post('Admin/personnel/{id}',[PersonnelController::class,"destroy"])->name("personnel.destroy");
+

@@ -99,6 +99,6 @@ class PersonnelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd("gracien finalise moi stp ");
     }
 }
