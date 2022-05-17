@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\PersonnelController;
+use App\Http\Controllers\Admin\transactionController;
+use App\Http\Controllers\User\CreditController;
 
 
 /*
@@ -19,9 +21,15 @@ use App\Http\Controllers\Admin\PersonnelController;
 Route::get('/', function () {
     return view('UserView.indexUser');
 });
-Route::resource('Admin/client',ClientController::class);
-// Route::put('Admin/client/{id}',[ClientController::class,"update"])->name("client.update");
-Route::post('Admin/client/{id}',[ClientController::class,"destroy"])->name("client.destroy");
-Route::resource('Admin/personnel',PersonnelController::class);
-Route::post('Admin/personnel/{id}',[PersonnelController::class,"destroy"])->name("personnel.destroy");
 
+//ADMIN ROUTE
+Route::resource('admin/client',ClientController::class);
+Route::post('admin/client/{id}',[ClientController::class,"destroy"])->name("client.destroy");
+Route::resource('admin/personnel',PersonnelController::class);
+Route::post('admin/personnel/{id}',[PersonnelController::class,"destroy"])->name("personnel.destroy");
+Route::resource('admin/transaction',transactionController::class);
+Route::get('admin/transactionadd/{id}',[transactionController::class,'add'])->name("transaction.add");
+Route::get('admin/transactionclientetat/{id}',[transactionController::class,'clientEtat'])->name("transaction.clientetat");
+//USER ROUTE
+Route::resource('user/credit',CreditController::class);
+Route::get('user/',[CreditController::class,"index"])->name("userindex");

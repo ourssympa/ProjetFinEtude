@@ -1,20 +1,19 @@
 @extends('UserView.layout.layout')
 @section('section')
-<div class="main-content-wrap sidenav-open d-flex flex-column">
+<div class="main-content-wrap sidenav-open d-flex flex-column" style="background-color: rgb(233, 229, 224);" >
     <!-- ============ Body content start ============= -->
     <div class="main-content">
         <div class="breadcrumb">
-            <h1 class="mr-2">Version 1</h1>
+            <h1 class="mr-2">Mida microfinance</h1>
             <ul>
-                <li><a href="#">Dashboard</a></li>
-                <li>Version 1</li>
+                <li><a href="#">Vos informations</a></li>
             </ul>
         </div>
         <div class="separator-breadcrumb border-top">
             <div class="card user-profile o-hidden mb-4">
-                <div class="header-cover" style="background-image: url('{{asset("UserAssets/dist-assets/images/photo-wide-4.jpg")}}')"></div>
-                <div class="user-info"><img class="profile-picture avatar-lg mb-2" src="{{asset("UserAssets/dist-assets/images/faces/1.jpg")}}" alt="" />
-                    <p class="m-0 text-24">Timothy Carlson</p>
+                <div class="header-cover" style="background-image: url('{{Asset("AdminAssets/images/logo.png")}}')"></div>
+                {{-- <img src="{{Asset("AdminAssets/images/logo.png")}}" alt="logo"> --}}
+                <p class="m-0 text-24">Timothy Carlson</p>
                     <p class="text-muted m-0">Digital Marketer</p>
                 </div>
 
@@ -22,11 +21,11 @@
         </div>
         <div class="row">
             <!-- ICON BG-->
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="col-lg-3 col-md-6 col-sm-6 ">
                 <div class="card card-icon-bg card-icon-bg-primary o-hidden mb-4">
                     <div class="card-body text-center"><i class="i-Add-User"></i>
                         <div class="content">
-                            <p class="text-muted mt-2 mb-0">New Leads</p>
+                            <p class="text-muted mt-2 mb-0">Client Depuis</p>
                             <p class="text-primary text-24 line-height-1 mb-2">205</p>
                         </div>
                     </div>

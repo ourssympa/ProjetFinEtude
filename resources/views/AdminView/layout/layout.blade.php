@@ -184,29 +184,21 @@
 					<li class="treeview">
 						<li><a href="{{route('personnel.create')}}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Ajout Personnel</a></li>
 					</li>
-			
+
 				  </ul>
 				</li>
 				<li class="treeview">
 				  <a href="#">
 					<i data-feather="truck"></i>
-					<span>Forms</span>
+					<span>Transactions</span>
 					<span class="pull-right-container">
 					  <i class="fa fa-angle-right pull-right"></i>
 					</span>
 				  </a>
 				  <ul class="treeview-menu">
-					<li><a href="forms_advanced.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Form Elements</a></li>
-					<li><a href="forms_general.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Form Layout</a></li>
-					<li><a href="forms_wizard.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Form Wizard</a></li>
-					<li><a href="forms_validation.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Form Validation</a></li>
-					<li><a href="forms_mask.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Formatter</a></li>
-					<li><a href="forms_xeditable.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Xeditable Editor</a></li>
-					<li><a href="forms_dropzone.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Dropzone</a></li>
-					<li><a href="forms_code_editor.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Code Editor</a></li>
-					<li><a href="forms_editors.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Editor</a></li>
-					<li><a href="forms_editor_markdown.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Markdown</a></li>
-				  </ul>
+					<li><a href="{{ route('transaction.index')}}"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Faire une Transaction</a></li>
+					<li><a href="forms_general.html"><i class="icon-Commit"><span class="path1"></span><span class="path2"></span></i>Liste des Transactions</a></li>
+				</ul>
 				</li>
 				<li class="treeview">
 				  <a href="#">

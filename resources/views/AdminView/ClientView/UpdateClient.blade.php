@@ -6,7 +6,7 @@
     <div class="box-header">
         <h4 class="box-title">
             <font style="vertical-align: inherit;">
-                <font style="vertical-align: inherit;">Creation de compte</font>
+                <font style="vertical-align: inherit;">Modifier le compte</font>
             </font>
         </h4>
     </div>
