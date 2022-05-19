@@ -30,9 +30,14 @@
                     <td>{{ $data->designation }}</td>
                     <th>{{ $data->solde.' CFA'}}</th>
                     <td>
-                          <a class="btn btn-primary btn-sm" href="{{ route('transaction.add',$data->id) }}">
+                          <a class="btn btn-danger btn-sm" href="{{ route('transaction.add',$data->id) }}">
 
                        Transaction
+                    </a>
+                    
+                    <a class="btn btn-success btn-sm" href="{{ route('transaction.historique',$data->id) }}">
+
+                      Historique
                     </a>
                     </td>
                 </tr>

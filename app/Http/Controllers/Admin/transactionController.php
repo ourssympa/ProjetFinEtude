@@ -36,7 +36,17 @@ class transactionController extends Controller
     {
         //
     }
-
+    public function liste()
+    {
+        $datas = Transaction::orderBy('id','DESC')->get();
+        return view('AdminView/transactionView/transactionListe',compact("datas"));
+    } 
+    
+    public function historique($id)
+    {
+        $datas = Transaction::where('idclient',$id)->orderBy('id','DESC')->get();
+        return view('AdminView/transactionView/transactionListe',compact("datas"));
+    }
     /**
      * Store a newly created resource in storage.
      *

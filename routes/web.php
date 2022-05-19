@@ -16,8 +16,8 @@ use App\Http\Controllers\User\CreditController;
 |
 */
 Route::get('/', function () {
-    return view('UserView.indexUser');
-});
+    return view('home');
+})->name('home');
 
 //ADMIN ROUTE
 Route::resource('admin/client',ClientController::class);
@@ -26,7 +26,9 @@ Route::resource('admin/personnel',PersonnelController::class);
 Route::post('admin/personnel/{id}',[PersonnelController::class,"destroy"])->name("personnel.destroy");
 Route::resource('admin/transaction',transactionController::class);
 Route::get('admin/transactionadd/{id}',[transactionController::class,'add'])->name("transaction.add");
+Route::get('admin/transactionhistorique/{id}',[transactionController::class,'historique'])->name("transaction.historique");
 Route::get('admin/transactionclientetat/{id}',[transactionController::class,'clientEtat'])->name("transaction.clientetat");
+Route::get('admin/transactionliste',[transactionController::class,'liste'])->name("transaction.liste");
 //USER ROUTE
 Route::resource('user/credit',CreditController::class);
 Route::get('user/',[CreditController::class,"index"])->name("userindex");

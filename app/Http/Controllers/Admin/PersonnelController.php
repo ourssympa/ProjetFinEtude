@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Models\Personnel;
+use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class PersonnelController extends Controller
 {
@@ -47,7 +49,14 @@ class PersonnelController extends Controller
     public function store(Request $request)
     {
         $request['slug']= Str::slug($request->nom.' '.$request->prenoms);
-        Personnel::create($request->all());
+        $personnel=Personnel::create($request->all());
+         User::create([
+            'name' => $personnel->nom,
+            "idclient"=>$personnel->id,
+            'type' => 'admin',
+            'email' => $personnel->nom.'@mida.com',
+            'password' => Hash::make('12345678'),
+        ]);
         return redirect()->route('personnel.index');
 
     }
