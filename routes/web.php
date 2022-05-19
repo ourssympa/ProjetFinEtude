@@ -5,8 +5,6 @@ use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\PersonnelController;
 use App\Http\Controllers\Admin\transactionController;
 use App\Http\Controllers\User\CreditController;
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +15,6 @@ use App\Http\Controllers\User\CreditController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('UserView.indexUser');
 });
@@ -33,3 +30,9 @@ Route::get('admin/transactionclientetat/{id}',[transactionController::class,'cli
 //USER ROUTE
 Route::resource('user/credit',CreditController::class);
 Route::get('user/',[CreditController::class,"index"])->name("userindex");
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
