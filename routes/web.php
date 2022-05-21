@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\PersonnelController;
 use App\Http\Controllers\Admin\transactionController;
 use App\Http\Controllers\User\CreditController;
+use App\Http\Controllers\User\user;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,7 +33,7 @@ Route::get('admin/transactionclientetat/{id}',[transactionController::class,'cli
 Route::get('admin/transactionliste',[transactionController::class,'liste'])->name("transaction.liste");
 //USER ROUTE
 Route::resource('user/credit',CreditController::class);
-Route::get('user/',[CreditController::class,"index"])->name("userindex");
+Route::get('user/',[user::class,"index"])->name("userindex");
 
 Route::get('/dashboard', function () {
     return view('dashboard');

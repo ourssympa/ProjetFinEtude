@@ -3,6 +3,12 @@
 @section('contents')
 <div class="box">
 
+@if (session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
+
     <div class="box-header">
         <h4 class="box-title">
             <font style="vertical-align: inherit;">

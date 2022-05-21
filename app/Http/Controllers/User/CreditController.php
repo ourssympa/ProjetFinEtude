@@ -14,7 +14,7 @@ class CreditController extends Controller
      */
     public function index()
     {
-        return view('UserView.indexUser');
+      
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Client;
+use App\Models\CompteClient;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -40,8 +41,8 @@ class transactionController extends Controller
     {
         $datas = Transaction::orderBy('id','DESC')->get();
         return view('AdminView/transactionView/transactionListe',compact("datas"));
-    } 
-    
+    }
+
     public function historique($id)
     {
         $datas = Transaction::where('idclient',$id)->orderBy('id','DESC')->get();
@@ -55,20 +56,36 @@ class transactionController extends Controller
      */
     public function store(Request $request)
     {
-        Transaction::create([
-            'idclient'=>$request->id,
-            'montant'=>$request->montant,
-            'type'=>$request->type,
-            'date'=>today()
-        ]);
+        $user=CompteClient::where('idclient',$request->id)->first();
+
         if($request->type=="depot"){
             DB::table('compte_clients')->where('idclient',$request->id)->increment('solde',$request->montant);
+
+            Transaction::create([
+                'idclient'=>$request->id,
+                'montant'=>$request->montant,
+                'type'=>$request->type,
+                'date'=>today()
+            ]);
         }
         else{
-            DB::table('compte_clients')->where('idclient',$request->id)->decrement('solde',$request->montant);
-        }
+            if($user->solde < $request->montant)
+            {
+                return redirect()->back()->with('error', 'vous ne pouvez pas retirer cette somme elle est superieure au  solde');
+            }
+            else{
+                Transaction::create([
+                    'idclient'=>$request->id,
+                    'montant'=>$request->montant,
+                    'type'=>$request->type,
+                    'date'=>today()
+                ]);
+                DB::table('compte_clients')->where('idclient',$request->id)->decrement('solde',$request->montant);
 
-        return redirect()->route('transaction.clientetat',$request->id);
+            }
+         }
+
+        return redirect()->route('transaction.clientetat',$request->id)->with('message', 'operation reussit');
     }
 
     public function clientEtat($id){

@@ -2,6 +2,12 @@
 
 @section('contents')
 <div class="box">
+
+@if (session('message'))
+<div class="alert alert-success">
+    {{ session('message') }}
+</div>
+@endif
     <div class="container">
         <div class="row">
           <div class="col">
