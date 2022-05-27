@@ -61,7 +61,7 @@
     <!-- /.box-body -->
   </div>
     @section('script')
-<script src={{Asset("AdminAssets/assets/vendor_components/datatable/datatables.min.js")}}></script>
+<script src="{{Asset("AdminAssets/assets/vendor_components/datatable/datatables.min.js")}}"></script>
 <script src="{{Asset("AdminAssets/main/js/pages/data-table.js")}}"></script>
 @endsection
 @endsection

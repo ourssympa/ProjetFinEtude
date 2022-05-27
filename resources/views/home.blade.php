@@ -50,45 +50,7 @@
         <!--=======-** Header Start **-=======-->
         <header class="header-area transparent-header">
             <div class="header-top d-none d-lg-block">
-                <div class="container header-top-bg">
-                    <div class="header-top-bg">
-                        <div class="row align-items-center">
-                            <div class="col-xl-6 col-lg-6 col-md-8">
-                                <div class="header-top-left">
-                                    <ul>
-                                        <li><a href="#"> <img src="site/assets/img/header/chat.png" alt="imgimg"> Need
-                                                Free Consultation?</a></li>
-                                        <li><a href="#">Book Schedule Now</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-4">
-                                <div class="header-top-right">
-                                    <div class="header-top-social">
-                                        <ul>
-                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-behance"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-pinterest"></i></a></li>
-                                        </ul>
-                                    </div>
 
-                                    <div class="header-lang-wrap">
-                                        <select>
-                                            <option selected="selected" value="default" hidden="">ENG</option>
-                                            <option value="#">Bangla</option>
-                                            <option value="#">Arabic</option>
-                                            <option value="#">Hindi</option>
-                                            <option value="#">Spanish</option>
-                                        </select>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div id="sticky-header" class="header-menu">
@@ -98,7 +60,7 @@
                             <div class="col-xl-2 col-lg-3 col-md-12 col-sm-12">
                                 <div class=" d-flex align-items-center">
                                     <a href="index-2.html">
-                                        <img src="/AdminAssets/images/logo.png" alt="imgimg" style=" width: 50%;">
+                                        <img src="/AdminAssets/images/logo2.png" alt="imgimg" style=" width: 50%;">
                                     </a>
                                 </div>
 
@@ -119,6 +81,18 @@
                                             <li class="menu-item-has-children"><a href="#service">Nos services</a>
 
                                             </li>
+                                            <li>
+                                                @if (Auth::user())
+                                                    @if (Auth::user()->type == 'admin')
+                                                        <a href="{{ route('client.index') }}">Administration Panel</a>
+                                                    @else
+                                                        <a href="{{ route('userindex') }}">Panel de Gestion de mon
+                                                            compte</a>
+                                                    @endif
+                                                @endif
+
+                                            </li>
+                                            <li style="margin-right: 1cm;">
                                             @if (!Auth::user())
                                                 <li class="menu-item-has-children"><a
                                                         href="{{ route('login') }}">Connexion</a>
@@ -133,18 +107,7 @@
                                                     </a>
                                                 </li>
                                             @endif
-                                            <li class="menu-item-has-children">
-                                                @if (Auth::user())
-                                                    @if (Auth::user()->type == 'admin')
-                                                        <a href="{{ route('client.index') }}">Administration Panel</a>
-                                                    @else
-                                                        <a href="{{ route('client.index') }}">Panel de Gestion de mon
-                                                            compte</a>
-                                                    @endif
-                                                @endif
-
-                                            </li>
-
+                                        </li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -153,7 +116,7 @@
                             <div class="col-xl-3 col-lg-2 col-md-7">
                                 <div class="header-contact-right">
                                     <div class="phone-icon d-none d-xl-block">
-                                        <i class="flaticon-phone-call"></i>
+                                       
                                     </div>
                                     <div class="phone-number d-none d-xl-block ">
                                         <span>Service client</span>
@@ -162,7 +125,7 @@
                                         </p>
                                     </div>
                                     <div class="header-contact-btn  d-none d-xl-block">
-                                        <a href="contact.html" class="btn btn-primary">contact us</a>
+                                        <a href="contact.html" class="btn btn-danger">contact us</a>
                                     </div>
 
                                 </div>

@@ -16,9 +16,11 @@ return new class extends Migration
         Schema::create('credits', function (Blueprint $table) {
             $table->id();
             $table->string("codecredit");
-            $table->integer('mnt');
+            $table->integer('montant');
+            $table->integer('solde_credit');
             $table->integer('idclient');
-            $table->double('interet');
+            $table->double('interet')->nullable();
+            $table->string('motifs')->nullable();
             $table->date('dateoctroi')->nullable();
             $table->string('status');
             $table->date('echeance')->nullable();

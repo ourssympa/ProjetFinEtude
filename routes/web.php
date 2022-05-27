@@ -35,6 +35,8 @@ Route::get('admin/transactionliste',[transactionController::class,'liste'])->nam
 Route::resource('user/credit',CreditController::class);
 Route::get('user/',[user::class,"index"])->name("userindex");
 
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
