@@ -42,6 +42,8 @@ Route::get('user/',[user::class,"index"])->name("userindex");
 Route::get('user/creditetat',[CreditController::class,"etat"])->name("credit.etat");
 Route::get('user/creditvoir/{id}',[CreditController::class,"voir"])->name("credit.voir");
 Route::get('user/credithistorique',[CreditController::class,"historique"])->name("credit.historique");
+Route::get('admin/creditliste',[CreditController::class,"liste"])->name("credit.liste");
+Route::get('admin/creditdetail/{id}',[CreditController::class,"detail"])->name("credit.detail");
 Route::post('credit/choix/{id}',[CreditController::class,"choix"])->name("credit.choix");
 
 

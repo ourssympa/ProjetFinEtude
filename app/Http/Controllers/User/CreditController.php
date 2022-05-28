@@ -132,6 +132,18 @@ public function voir($id){
     return view('UserView.CreditView.voir',compact('data','datas'));
 
 }
+public function liste()
+{
+    $datas = Credit::where('status','accepté')->orWhere('status','soldé')->get();
+    return view('AdminView/creditView/liste',compact('datas'));
+}
+public function detail($id)
+{
+    $data=Credit::Where('id',$id)->first();
+
+    $datas=Remboursemnt::where('idcredit',$data->id)->orderBy('id','DESC')->get();
+    return view('AdminView/creditView/detail',compact('datas','data'));
+}
     /**
      * Show the form for editing the specified resource.
      *

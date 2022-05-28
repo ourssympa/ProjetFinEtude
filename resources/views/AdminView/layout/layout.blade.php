@@ -245,6 +245,9 @@
                                 <li><a href="{{ route('credit.index') }}"><i class="icon-Commit"><span
                                                 class="path1"></span><span
                                                 class="path2"></span></i>Les demandes de credit</a></li>
+                                 <li><a href="{{ route('credit.liste') }}"><i class="icon-Commit"><span
+                                                class="path1"></span><span
+                                                class="path2"></span></i>Liste des credits </a></li>
                              </ul>
                         </li>
 
