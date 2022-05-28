@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('revmensuel')->default(0);
             $table->boolean('patrimoine')->default(false);
             $table->string('slug')->nullable();
+            $table->integer('sp')->default(0);
             $table->integer('estimationpatrimoine')->default(0);
             //elements propres aux personnes physique
             $table->string('numcarte')->nullable();

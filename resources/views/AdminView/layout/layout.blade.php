@@ -247,6 +247,21 @@
                                                 class="path2"></span></i>Les demandes de credit</a></li>
                              </ul>
                         </li>
+
+                        <li class="treeview">
+                            <a href="#">
+                                <i data-feather="truck"></i>
+                                <span>Gestion des Remboursements</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="{{ route('remboursement.index') }}"><i class="icon-Commit"><span
+                                                class="path1"></span><span
+                                                class="path2"></span></i>Faire un remboursement</a></li>
+                             </ul>
+                        </li>
                         </ul>
 
                         <div class="sidebar-widgets">

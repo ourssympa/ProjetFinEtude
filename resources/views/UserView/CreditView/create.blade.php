@@ -91,9 +91,12 @@
                                <td>
                                    <span class="btn btn-primary">{{$data->status}}</span>
                                </td>
+                               @if($data->status!="accepté")
                                <td>
-                                   <a href="" class="btn btn-danger">Annuler le pret</a>
-                               </td>
+                                <a href="" class="btn btn-danger">Annuler le pret</a>
+                                </td>
+                               @endif
+
                                @endif
 
 

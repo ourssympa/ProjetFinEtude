@@ -2,7 +2,7 @@
 
 @section('contents')
 <div class="row">
-    <div class="col-xl-4">
+    {{-- <div class="col-xl-4">
         <div class="card overflow-hidden">
             <div class="bg-primary bg-soft">
                 <div class="row">
@@ -47,16 +47,17 @@
         <div class="card">
 
         </div>
-    </div>
-    <div class="col-xl-8">
+    </div> --}}
+    @if ($data)
+    <div class="col-xl-10">
         <div class="row">
             <div class="col-md-4">
                 <div class="card mini-stats-wid">
                     <div class="card-body">
                         <div class="d-flex">
                             <div class="flex-grow-1">
-                                <p class="text-muted fw-medium">Solde</p>
-                                <h4 class="mb-0">{{$compte->solde}} CFA</h4>
+                                <p class="text-muted fw-medium">Code credit</p>
+                                <h4 class="mb-0">{{$data->codecredit}} CFA</h4>
                             </div>
 
                             <div class="flex-shrink-0 align-self-center">
@@ -75,8 +76,28 @@
                     <div class="card-body">
                         <div class="d-flex">
                             <div class="flex-grow-1">
-                                <p class="text-muted fw-medium">Num de compte</p>
-                                <h4 class="mb-0">{{$compte->numcompte}}</h4>
+                                <p class="text-muted fw-medium">Montant:</p>
+                                <h4 class="mb-0">{{$data->montant}}</h4>
+                            </div>
+
+                            <div class="flex-shrink-0 align-self-center ">
+                                <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                                    <span class="avatar-title rounded-circle bg-primary">
+                                        <i class="bx bx-archive-in font-size-24"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="col-md-4">
+                <div class="card mini-stats-wid">
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <div class="flex-grow-1">
+                                <p class="text-muted fw-medium">Interet:</p>
+                                <h4 class="mb-0">{{$data->interet}}</h4>
                             </div>
 
                             <div class="flex-shrink-0 align-self-center ">
@@ -95,8 +116,29 @@
                     <div class="card-body">
                         <div class="d-flex">
                             <div class="flex-grow-1">
-                                <p class="text-muted fw-medium">Solde de credit</p>
-                                <h4 class="mb-0">{{$montant}} CFA</h4>
+                                <p class="text-muted fw-medium">Reste a remboursé</p>
+                                <h4 class="mb-0 text-danger">{{$data->solde_credit}} CFA</h4>
+                            </div>
+
+                            <div class="flex-shrink-0 align-self-center">
+                                <div class="avatar-sm rounded-circle bg-primary mini-stat-icon">
+                                    <span class="avatar-title rounded-circle bg-primary">
+                                        <i class="bx bx-purchase-tag-alt font-size-24"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mini-stats-wid">
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <div class="flex-grow-1">
+                                <p class="text-muted fw-medium">Solde du credit</p>
+                                <h4 class="mb-0 text-success">{{$data->solde}} CFA</h4>
                             </div>
 
                             <div class="flex-shrink-0 align-self-center">
@@ -126,8 +168,9 @@
                                     </div>
                                 </th>
                                 <th class="align-middle">Date</th>
-                                <th class="align-middle">Type de transaction</th>
+
                                 <th class="align-middle">Montant</th>
+                                <th class="align-middle">Type de transaction</th>
 
                             </tr>
                         </thead>
@@ -141,9 +184,9 @@
                                     </div>
                                     <td>{{$data->date}}</td>
                                     <td>{{$data->montant}}</td>
-                                    @if ($data->type=="depot")
+                                    @if ($data->type=="remboursement")
                                     <td>
-                                        <span class="badge badge-pill badge-soft-success font-size-11">depot</span>
+                                        <span class="badge badge-pill badge-soft-success font-size-11">remboursement</span>
                                     </td>
                                     @else
                                     <td>
@@ -161,9 +204,21 @@
             </div>
         </div>
     </div>
+    @else
+    <div class="col-lg-4 ">
+        <div class="card bg-success text-light">
+            <div class="card-body">
+                <h5 class="mb-4 text-light"><i class="mdi mdi-alert-circle-outline me-3"></i>Information</h5>
+                <p class="card-text">          <h2><b>votre demande est encours de traitement veuillez patienter </b></h2>
+                </p>
+            </div>
+        </div>
+    </div>
+    @endif
+
 </div>
 @endsection
 
 @section('titre')
-Mon compte
+Etat de mon credit
 @endsection

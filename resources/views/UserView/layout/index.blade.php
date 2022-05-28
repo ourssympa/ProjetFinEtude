@@ -141,7 +141,8 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="{{route('credit.create')}}" key="t-default">Faire une demande</a></li>
-                                    <li><a href="dashboard-saas.html" key="t-saas">Etat de mon credit</a></li>
+                                    <li><a href="{{route('credit.etat')}}" key="t-saas">Etat de mon credit</a></li>
+                                    <li><a href="{{route('credit.historique')}}" key="t-saas">historique</a></li>
                                 </ul>
                             </li>
 

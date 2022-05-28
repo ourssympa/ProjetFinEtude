@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\PersonnelController;
 use App\Http\Controllers\Admin\transactionController;
+use App\Http\Controllers\remboursementController;
 use App\Http\Controllers\User\CreditController;
 use App\Http\Controllers\User\user;
 
@@ -31,9 +32,17 @@ Route::get('admin/transactionadd/{id}',[transactionController::class,'add'])->na
 Route::get('admin/transactionhistorique/{id}',[transactionController::class,'historique'])->name("transaction.historique");
 Route::get('admin/transactionclientetat/{id}',[transactionController::class,'clientEtat'])->name("transaction.clientetat");
 Route::get('admin/transactionliste',[transactionController::class,'liste'])->name("transaction.liste");
+
+Route::get('admin/remboursement',[remboursementController::class,'index'])->name('remboursement.index');
+Route::get('admin/remboursementadd/{id}',[remboursementController::class,'add'])->name('remboursement.add');
+Route::post('admin/remboursementadd/',[remboursementController::class,'store'])->name('remboursement.store');
 //USER ROUTE
 Route::resource('user/credit',CreditController::class);
 Route::get('user/',[user::class,"index"])->name("userindex");
+Route::get('user/creditetat',[CreditController::class,"etat"])->name("credit.etat");
+Route::get('user/creditvoir/{id}',[CreditController::class,"voir"])->name("credit.voir");
+Route::get('user/credithistorique',[CreditController::class,"historique"])->name("credit.historique");
+Route::post('credit/choix/{id}',[CreditController::class,"choix"])->name("credit.choix");
 
 
 

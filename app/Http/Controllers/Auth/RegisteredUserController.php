@@ -43,6 +43,7 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'type' => 'admin',
             'email' => $request->email,
+            'idclient' => 1,
             'password' => Hash::make($request->password),
         ]);
 

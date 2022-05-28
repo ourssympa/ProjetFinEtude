@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Client;
 use App\Models\Credit;
+use App\Models\Remboursemnt;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,6 +20,7 @@ class CreditController extends Controller
     public function index()
     {
         $datas = Credit::where('status','traitement')->get();
+
         return view('AdminView/creditView/index',compact('datas'));
 
     }
@@ -39,7 +41,8 @@ class CreditController extends Controller
     }
         $id =Auth::user()->idclient;
         $client = Client::where('id',$id)->first();
-        $data= Credit::where('idclient',$id)->where('status','traitement')->first();
+        $data= Credit::where('status','traitement')->orWhere('status','accepté')->where('idclient',$id)->first();
+
         return view('UserView.CreditView.create',compact('client','code','data'));
     }
 
@@ -67,9 +70,68 @@ class CreditController extends Controller
      */
     public function show($id)
     {
-        //
+         $credit = Credit::where('id',$id)->first();
+
+         $client = Client::where('id',$credit->idclient)->first();
+         return view('AdminView/creditView/show',compact('credit','client'));
+        }
+
+        public function choix($id,Request $request)
+    {
+        $request->validate(['motifs'=>'required']);
+
+        $credit = Credit::where('id',$id)->first();
+        $client = Client::where('id',$credit->idclient)->first();
+       $credit['status']=$request->status;
+       $credit['dateoctroi']=today();
+       $credit['motifs']=$request->motifs;
+       $interet=($credit->montant*20)/100;
+       $solde= $interet+$credit->montant;
+
+        if($request->status=="accepté"){
+            $client['sp']=1;
+            $client->save();
+            $credit['solde_credit']=$solde;
+            $credit['interet']=$interet;
+            $credit['solde']=$credit->montant;
+            $credit['echeance']=today()->addMonth(12);
+        }
+        $credit->save();
+        return redirect()->route('credit.index');
+
+         //$client = Client::where('id',$credit->idclient)->first();
+         //return view('AdminView/creditView/show',compact('credit','client'));
+        }
+
+function etat(){
+    $id =Auth::user()->idclient;
+    $data=Credit::Where('status','accepté')->where('idclient',$id)->first();
+    if($data){
+        $datas=Remboursemnt::where('idcredit',$data->id)->get();
+    }else{
+        $datas=0;
     }
 
+    return view('UserView.CreditView.etat',compact('data','datas'));
+
+}
+
+public function historique()
+{
+    $id=Auth::user()->idclient;
+    $datas=Credit::where('idclient',$id)->orderBy('id','DESC')->get();
+    return view('UserView.CreditView.historique',compact('datas'));
+}
+
+public function voir($id){
+
+    $data=Credit::Where('id',$id)->first();
+
+    $datas=Remboursemnt::where('idcredit',$data->id)->orderBy('id','DESC')->get();
+
+    return view('UserView.CreditView.voir',compact('data','datas'));
+
+}
     /**
      * Show the form for editing the specified resource.
      *
